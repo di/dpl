@@ -119,6 +119,9 @@ module DPL
       end
 
       def check_app
+        unless context.shell "twine check dist/*"
+          error 'One or more distributions are invalid.'
+        end
       end
 
       def needs_key?
